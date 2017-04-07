@@ -1,0 +1,39 @@
+---
+#
+# These plays are intendend to update the syslog configuration only
+#
+
+- hosts: syslog-client 
+
+  tasks:
+  - name: "Setup vars"
+    include_vars: vars/base_vars.yml
+
+  - name: "What flavor of syslog?"
+    shell: ps -ef | grep syslog | grep bin | grep -v grep | awk '{print $8}'
+    register: syslogserver
+
+
+  - name: "Update rsyslog config"
+    template: src=templates/rsyslog.conf.j2 dest=/etc/rsyslog.d/ansible.conf
+    when: syslogserver.stdout == "/usr/sbin/rsyslogd"
+    become: true
+    notify:
+    - restart rsyslog
+
+  - name: "Update syslog-ng config"
+    template: src=templates/syslog-ng-client.conf.j2 dest=/etc/syslog-ng/conf.d/ansible.conf
+    when: syslogserver.stdout == "/usr/sbin/syslog-ng"
+    become: true
+    notify:
+    - restart syslog-ng
+
+
+  handlers:
+  - name: restart rsyslog
+    service: name=rsyslog state=restarted
+    become: true
+
+  - name: restart syslog-ng
+    service: name=syslog-ng state=restarted
+    become: true

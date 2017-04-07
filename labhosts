@@ -1,0 +1,14 @@
+---
+# I don't like the terms master and slaves
+# however I am a big military fan although I was not able to serve.
+# So I will go with military syntax for hierarchy.
+
+# Lab general controlls all nodes 
+[lab-general]
+
+
+# A Lab Major are hadoop masters
+[hadoop-major]
+
+
+[hadoop-privates]
