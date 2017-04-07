@@ -1,11 +1,11 @@
 ---
-# I don't like the terms master and slaves
-# however I am a big military fan although I was not able to serve.
+# I don't like the terms master and slaves.  Note that not all slaves were black.
+# I am a big military fan although I was not able to serve.
 # So I will go with military syntax for hierarchy.
 
 # Lab general controlls all nodes 
 [lab-general]
-
+general ansible_host=10.138.0.7 ansible_port=22 ansible_user=<YourSudoUser>
 
 # A Lab Major are hadoop masters
 [hadoop-major]
