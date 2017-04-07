@@ -16,5 +16,4 @@ echo "Then run your playbook on the general with:"
 echo ""
 echo -e "\e[0;"33"m ansible-playbook site.yml -i labhosts -l lab-general \033[0m"
 echo ""
-cd sparklab
 exit
