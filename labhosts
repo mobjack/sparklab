@@ -5,7 +5,7 @@
 
 # Lab general controlls all nodes 
 [lab-general]
-general ansible_host=10.138.0.7 ansible_port=22 ansible_user=<YourSudoUser>
+general ansible_host=localhost ansible_port=22 ansible_user=<YourSudoUser>
 
 # A Lab Major are hadoop masters
 [hadoop-major]

@@ -4,7 +4,7 @@
 
 # Here we will get the base tools we need,
 # everythin else will be installed wiht ansible
-sudo yum -y install git ansible
+sudo yum -q -y install git ansible
 
 # Grab the repo
 /usr/bin/git clone https://github.com/mobjack/sparklab.git
