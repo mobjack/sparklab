@@ -1,0 +1,41 @@
+---
+
+#
+# This file has the specific settings for the syslog master.
+# See the production file to see who gets this configuration
+
+
+- hosts: lab-general
+
+
+  tasks:
+  - name: "Setup vars"
+    include_vars: vars/base_vars.yml
+
+  - name: "Set master syslog Config"
+    template: src=templates/syslog-ng-master.conf.j2  dest=/etc/syslog-ng/syslog-ng.conf
+    become: true
+    notify:
+    - restart syslog-ng
+
+  - name: Open Syslog Tcp
+    firewalld: port=514/tcp permanent=true state=enabled
+    become: true
+
+  - name: Open Syslog Udp
+    firewalld: port=514/udp permanent=true state=enabled
+    become: true
+    
+    # Setup google sdk
+  - name: "Setup Google SDK Config"
+    template: src=templates/google-repo.j2  dest=/etc/yum.repos.d/google-cloud-sdk.repo
+    become: true
+
+  - name: "Is Google SDK installed?"
+    yum: name=google-cloud-sdk state=installed
+    become: true
+
+  handlers:
+  - name: restart syslog-ng
+    service: name=syslog-ng state=restarted
+    become: true
