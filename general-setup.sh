@@ -2,13 +2,6 @@
 
 # Setup a general
 
-# Here we will get the base tools we need,
-# everythin else will be installed wiht ansible
-sudo yum -q -y install git ansible
-
-# Grab the repo
-/usr/bin/git clone https://github.com/mobjack/sparklab.git
-
 # Setup SSH keys Note we are using generals key
 # Ansible needs to ssh to itself. Odd but necessary.
 echo "Setting up SSH keys, hit returns for all default values or customize as you see fit"
