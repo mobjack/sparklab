@@ -4,7 +4,7 @@
 # systems that are managed.
 #
 
-- hosts: all-soc:children
+- hosts: all
 
 
   tasks:
