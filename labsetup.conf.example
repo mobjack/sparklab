@@ -1,0 +1,6 @@
+[labsetup]
+gcp_user = <Your GCP User Name that has sudo privileges>
+gcp_project_id = <your project ID> 
+gcp_zone = <GCP zone>   
+private_number = <number of privates>
+private_size = <private sizes, small, medium, large>

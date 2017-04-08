@@ -1,0 +1,6 @@
+# To do
+1. Setup general as a proxy server in playbook
+2. Setup playbook so captain and privates point to proxy
+3. Get ip's from output of google api's
+4. Use those IP's to configure captain's and privates host file
+5. Push configs to captains and privates
