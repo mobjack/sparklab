@@ -215,7 +215,7 @@ def main():
         apiconfig = getconfig()
 
     # setup one captain
-    #setupapi(apiconfig['projectid'],apiconfig['zone'],'captain','medium')
+    setupapi(apiconfig['projectid'],apiconfig['zone'],'captain','medium')
 
     pstart = 1
     pend = int(apiconfig['private_num']) + 1
