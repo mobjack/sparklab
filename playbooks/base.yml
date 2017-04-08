@@ -20,7 +20,7 @@
     become: true
 
   - name: "Set NTP Config"
-    template: src=templates/etc/ntp.conf.j2  dest=/etc/ntp.conf
+    template: src=templates/ntp.conf.j2  dest=/etc/ntp.conf
     become: true
 
   # Install standard packages here

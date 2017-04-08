@@ -7,7 +7,7 @@ NTP_SERVERS:
 
 
 SYSLOG_SERVER:
-    master.localdomain.com
+    general
 
 LOG_OWNER:
    root
