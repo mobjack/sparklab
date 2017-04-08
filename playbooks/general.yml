@@ -35,6 +35,10 @@
     yum: name=google-cloud-sdk state=installed
     become: true
 
+  - name: "Is pip google-api-python-client installed?"
+    pip:  name=google-api-python-client
+    become: true
+
   handlers:
   - name: restart syslog-ng
     service: name=syslog-ng state=restarted
