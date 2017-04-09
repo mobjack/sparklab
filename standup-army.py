@@ -128,12 +128,7 @@ def setupapi(project, zone, instance_name, instance_size, wait=False):
     for instance in instances:
         print(' - ' + instance['name'])
 
-    print("""
-Instance created.
-It will take a minute or two for the instance to complete work.
-Check this URL: http://storage.googleapis.com/{}/output.png
-Once the image is uploaded press enter to delete the instance.
-""")
+    print "Instance %s is being created" % instance_name
 
 
 
@@ -234,14 +229,14 @@ def main():
         apiconfig = getconfig()
 
     # setup one captain
-    #setupapi(apiconfig['projectid'],apiconfig['zone'],'captain','medium')
+    setupapi(apiconfig['projectid'],apiconfig['zone'],'captain','medium')
 
     pstart = 1
     pend = int(apiconfig['private_num']) + 1
     while pstart != pend:
         print "Working on private %s" % pstart
         iname = 'private' + str(pstart) 
-        #setupapi(apiconfig['projectid'],apiconfig['zone'],iname,'small')
+        setupapi(apiconfig['projectid'],apiconfig['zone'],iname,'small')
         pstart += 1
 
     compute = googleapiclient.discovery.build('compute', 'v1')

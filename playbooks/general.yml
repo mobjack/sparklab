@@ -51,6 +51,14 @@
     notify:
     - restart squid
 
+  user:
+  - name: "firewalleric"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+    become: true
+
+
   handlers:
   - name: restart syslog-ng
     service: name=syslog-ng state=restarted
