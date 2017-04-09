@@ -1,3 +1,4 @@
 ---
-- include: playbooks/base.yml
+- include: playbooks/private.yml
 - include: playbooks/general.yml
+- include: playbooks/base.yml
