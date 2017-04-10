@@ -204,7 +204,7 @@ def getconfig():
 
 def setansiblehosts(apilisthosts,labuser): # updates the ansible hosts file
     hostsetup = ConfigParser.ConfigParser(allow_no_value=True)
-    hwriter = open(hostsfile, 'r+')
+    hwriter = open(hostsfile, 'w')
     hostsetup.read(hostsfile)
 
     for apiresult in apilisthosts:
@@ -217,6 +217,10 @@ def setansiblehosts(apilisthosts,labuser): # updates the ansible hosts file
             hostsetup.set('lab-private', privatestr, None)
         else:
             pass
+    # Reconfig the general bug fix. When ConfigParser reads it in it puts spaces after the '=' this is the fix
+    generalstr = 'general ansible_host=localhost ansible_port=22 ansible_user=%s' % labuser
+    hostsetup.set('lab-general', generalstr, None)
+
     hostsetup.write(hwriter)
     hwriter.close()    
 

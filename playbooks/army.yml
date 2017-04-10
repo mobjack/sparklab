@@ -1,6 +1,6 @@
 #
 
-- hosts: lab-private
+- hosts: lab-private, lab-captain
 
   tasks:
   - name: "Setup vars"
